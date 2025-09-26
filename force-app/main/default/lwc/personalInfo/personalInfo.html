@@ -1,0 +1,29 @@
+<template>
+    <lightning-card>
+        <template if:true={record.data}>
+            <div class="slds-p-around_medium" style="max-width: 350px;">
+                    <!-- Name -->
+                    <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">
+                        {fullName}
+                    </p>
+
+                    <!-- Email -->
+                    <p style="margin-bottom: 0.5rem;">{email}</p>
+
+                    <!-- Address -->
+                    <p style="margin-bottom: 0.5rem;">{address}</p>
+
+                    <!-- Zip Code -->
+                    <p style="margin-bottom: 0.5rem;">{zipCode}</p>
+
+                    <!-- City, State, Country -->
+                    <p style="margin-bottom: 0;">{city}, {state}, {country}</p>
+                
+            </div>
+        </template>
+
+        <template if:true={record.error}>
+            <p class="slds-p-around_medium">Error loading record: {record.error}</p>
+        </template>
+    </lightning-card>
+</template>

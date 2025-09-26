@@ -1,0 +1,13 @@
+/* transactionsTable.css */
+.row-hover:hover {
+    background: #f4f6f9;
+    transition: background 0.3s ease;
+}
+
+.status-badge {
+    background: #2ecc71; /* green */
+    color: white;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.8rem;
+}

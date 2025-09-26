@@ -1,0 +1,19 @@
+/* Fallback badge styles (in case SLDS theme classes don't render colors) */
+.fallback-badge-success {
+    background-color: #e6fdf0;
+    color: #075a2d;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.fallback-badge-error {
+    background-color: #fff0f0;
+    color: #a12a2a;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.fallback-badge-warning {
+    background-color: #fff9ec;
+    color: #7a5100;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+}

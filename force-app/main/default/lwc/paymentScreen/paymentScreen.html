@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Payment">
+        <div class="slds-p-around_medium">
+            <lightning-record-form
+                record-id={recordId}
+                object-api-name="Order_Product__c"
+                fields={fieldsToShow}
+                mode="readonly"
+                columns="1"
+            ></lightning-record-form>
+
+            <lightning-button
+                label="Pay Now"
+                variant="brand"
+                onclick={handlePayNow}
+                disabled={isPayDisabled}>
+            </lightning-button>
+
+
+        </div>
+    </lightning-card>
+</template>

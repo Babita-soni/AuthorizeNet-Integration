@@ -1,0 +1,36 @@
+<template>
+    <lightning-card>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+    </template>
+
+    <template if:true={order}>
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-table_fixed-layout" style="width: 100%;">
+                <thead>
+                    <tr class="slds-text-title_caps" style="font: size 0.5em;">
+                        <th scope="col"><div class="slds-p-around_small">Date</div></th>
+                        <th scope="col"><div class="slds-p-around_small">Product Name</div></th>
+                        <th scope="col"><div class="slds-p-around_small">Quantity</div></th>
+                        <th scope="col"><div class="slds-p-around_small">Total Amount</div></th>
+                        <th scope="col"><div class="slds-p-around_small">Payment Status</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="slds-p-around_small">{order.CreatedDate}</div></td>
+                        <td><div class="slds-p-around_small">{order.Buy_Product__c}</div></td>
+                        <td><div class="slds-p-around_small">{order.Quantity__c}</div></td>
+                        <td><div class="slds-p-around_small">{order.Total_Amount__c}</div></td>
+                        <td><div class="slds-p-around_small">{order.Payment_Status__c}</div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template if:false={order}>
+        <p class="slds-p-around_medium" style="font-size: 1.1rem;">No order details available.</p>
+    </template>
+    </lightning-card>
+</template>

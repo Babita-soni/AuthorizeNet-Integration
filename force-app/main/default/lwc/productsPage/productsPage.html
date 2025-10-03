@@ -1,0 +1,78 @@
+<template>
+    <lightning-card class="product-card" title="Products">
+        <div class="slds-p-around_medium slds-grid slds-wrap slds-gutters">
+            <template if:true={products}>
+                <template for:each={products} for:item="prod">
+                    <div key={prod.Id} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                        <lightning-card title={prod.Name} class="product-card">
+                            <template if:true={prod.ImageUrl}>
+                                <div class="image-container">
+                                    <img src={prod.ImageUrl} alt={prod.Name} />
+                                </div>
+                            </template>
+
+                            <div class="slds-p-around_small">
+                                <p><b>Price:</b> ₹{prod.Amount}</p>
+                            </div>
+                            
+                            <div class="product-actions">
+                                <!-- Quantity controls -->
+                                <div class="quantity-controls">
+                                    <lightning-button 
+                                        label="-" 
+                                        variant="neutral" 
+                                        onclick={decreaseQuantity} 
+                                        data-id={prod.Id} 
+                                        class="qty-btn">
+                                    </lightning-button>
+                                    <span class="qty-display">{prod.quantity}</span>
+                                    <lightning-button 
+                                        label="+" 
+                                        variant="neutral" 
+                                        onclick={increaseQuantity} 
+                                        data-id={prod.Id} 
+                                        class="qty-btn">
+                                    </lightning-button>
+                                </div>
+                                <!-- Add to Cart -->
+                                <lightning-button 
+                                    label="Add to Cart"    
+                                    variant="brand"      
+                                    class="action-btn" 
+                                    data-id={prod.Id} 
+                                    onclick={handleAddToCart}>
+                                </lightning-button>
+                                <!-- Buy Now -->
+                                <lightning-button 
+                                    label="Buy Now" 
+                                    variant="success" 
+                                    class="action-btn" 
+                                    data-id={prod.Id} 
+                                    data-amount={prod.Amount} 
+                                    data-name={prod.Name} 
+                                    onclick={handleOrder}>
+                                </lightning-button>
+                            </div>
+
+                        </lightning-card>
+                    </div>
+                </template>
+            </template>
+
+            <template if:false={products}>
+                <p>No products found.</p>
+            </template>
+        </div>
+    </lightning-card>
+
+    <!-- Payment Screen -->
+    <template if:true={showPayment}>
+        <c-payment-screen 
+            product-id={selectedProductId}
+            amount={selectedAmount}
+            name={selectedName}
+            onpay={handlePayNow}
+            onclose={handleClosePayment}>
+        </c-payment-screen>
+    </template>
+</template>

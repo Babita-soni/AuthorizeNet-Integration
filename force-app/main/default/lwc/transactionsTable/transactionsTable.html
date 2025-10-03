@@ -1,15 +1,14 @@
 <!-- transactionsTable.html -->
 <template>
-    <lightning-card title="💳 Transactions" icon-name="custom:custom63" class="slds-p-around_medium">
+    <lightning-card title="Transactions" class="slds-p-around_medium">
         <div class="slds-table_header slds-p-bottom_small slds-grid slds-grid_align-spread">
-            <lightning-button label="Sort" icon-name="utility:sort" variant="brand-outline"></lightning-button>
         </div>
 
         <div class="slds-table_edit_container slds-is-relative">
             <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
                 <thead>
                     <tr class="slds-line-height_reset">
-                        <th>Transaction Ref</th>
+                        <th>Transaction Name</th>
                         <th>Type</th>
                         <th>Card</th>
                         <th>Amount</th>
@@ -21,10 +20,9 @@
                     <template for:each={transactions} for:item="t">
                         <tr key={t.id} class="row-hover">
                             <td>
-                                <a href="javascript:void(0);" class="slds-text-link">{t.ref}</a>
+                                <a href="javascript:void(0);" class="slds-text-link">{t.Name}</a>
                             </td>
                             <td>
-                                <lightning-icon icon-name="utility:credit_card" size="x-small" class="slds-m-right_x-small"></lightning-icon>
                                 {t.type}
                             </td>
                             <td>{t.card}</td>

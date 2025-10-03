@@ -1,14 +1,13 @@
 <template>
-    <lightning-card title="Order Products" icon-name="standard:orders">
+    <lightning-card title="Order Products">
         <div class="slds-p-around_small slds-grid slds-grid_align-spread">
-            <h2 class="slds-text-heading_small">Order Product Records</h2>
             <div>
-                <lightning-button label="Refresh" variant="neutral" onclick={handleRefresh}></lightning-button>
             </div>
         </div>
 
-        <div class="slds-table_header-fixed_container slds-scrollable_y" style="max-height:400px;">
+        <div class="slds-table_header-fixed_container slds-scrollable_y" style="height:100%;">
             <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <!-- Table Heading -->
                 <thead>
                     <tr class="slds-line-height_reset">
                         <th scope="col"><div class="slds-truncate">Order Id</div></th>
@@ -18,10 +17,12 @@
                         <th scope="col"><div class="slds-truncate">Payment Status</div></th>
                     </tr>
                 </thead>
+                <!-- Table Rows -->
                 <tbody>
                     <template for:each={orderProducts} for:item="op">
                         <tr key={op.id}>
                             <td>
+                                <!-- prevents page reload when clicked -->
                                 <a href="javascript:void(0);" data-id={op.id} onclick={handleRowClick}>
                                     {op.orderId}
                                 </a>

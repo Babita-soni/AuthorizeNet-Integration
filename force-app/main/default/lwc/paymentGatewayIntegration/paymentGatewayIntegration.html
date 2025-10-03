@@ -11,10 +11,9 @@
         <div class="slds-p-horizontal--xx-large">
             <div style="display: flex;color:white" class="slds-align_absolute-center">
                 <span>Authorize Dot Net Payment by Credit Card</span>
-                <!-- <span if:true={showCard}>Credit Card</span> -->
             </div>
             <div style="box-shadow: 0px 0px 0px 0px;"
-                class="slds-m-vertical--large slds-tabs_card slds-align_absolute-center slds-size--6-of-12">
+                class="slds-m-vertical--large slds-tabs_card slds-align_absolute-center form-box">
                 <div class="slds-page-header slds-box--border">
                     <div class="slds-page-header__row">
                         <div class="slds-page-header__col-title">
@@ -23,40 +22,23 @@
                             </div>
                             <div class="slds-var-p-horizontal_small">
                                 <lightning-layout multiple-rows>
+
                                     <!-- credit card start -->
+
                                     <lightning-layout-item if:true={showCard} class="slds-p-around--xx-small valid" size="12">
                                         
-
-                                        <lightning-input class="cardNumber"
-                                            type="text"
-                                            name="cardNumber"
-                                            required
-                                            onchange={handleChange}
-                                            placeholder="Please Enter 16 Digit card number"
-                                            message-when-pattern-mismatch="Please enter valid card number"
-                                            pattern="[0-9]{16}"
-                                            label="Card Number"
-                                            min-length="16" max-length="16">
-                                        </lightning-input>
-
-                                    <!--<lightning-input class="cardNumber" type="tel" label="Card Number" name="cardNumber" placeholder="Please Enter 16 Digit card number" pattern="[0-9]{12,16}"></lightning-input>
-                                    
-                                    <div class="slds-form-element">
-                                        <label class="slds-form-element__label" for="text-input-id-56">
-                                        <abbr class="slds-required" title="required">* </abbr>Card Number</label>
-                                        <div class="slds-form-element__control">
-                                        <input type="number" id="text-input-id-56" name="cardNumber" placeholder="Please Enter 16 Digit card number" maxlength="16" required minlength="12" pattern="[0–9{16}]" class="slds-input cardNumber" />
-                                        </div>
-                                    </div> -->
-
-                                    <lightning-layout-item if:true={showCard} class="slds-p-around--xx-small" size="12"
-                                        medium-device-size="6" large-device-size="6">
-                                        <lightning-input name="amount" class="amount" type="number"
-                                            placeholder="Enter amount" label="Amount" min="1"
-                                            required onchange={handleChange}>
-                                        </lightning-input>
-                                    </lightning-layout-item>
-
+                                    <lightning-input class="cardNumber"
+                                        type="text"
+                                        name="cardNumber"
+                                        required
+                                        onchange={handleChange}
+                                        placeholder="Please Enter 16 Digit card number"
+                                        message-when-pattern-mismatch="Please enter valid card number"
+                                        pattern="[0-9]{16}"
+                                        label="Card Number"
+                                        min-length="16" max-length="16">
+                                    </lightning-input>
+                                
                                     </lightning-layout-item>
                                     <lightning-layout-item if:true={showCard} class="slds-p-around--xx-small" size="12"
                                         medium-device-size="3" large-device-size="3">
@@ -65,6 +47,7 @@
                                             required onchange={handleChange}>
                                         </lightning-combobox>
                                     </lightning-layout-item>
+
                                     <lightning-layout-item if:true={showCard} class="slds-p-around--xx-small" size="12"
                                         medium-device-size="3" large-device-size="3">
                                         <lightning-combobox class="year" name="year" options={yearOptions}
@@ -72,6 +55,7 @@
                                             onchange={handleChange}>
                                         </lightning-combobox>
                                     </lightning-layout-item>
+
                                     <lightning-layout-item if:true={showCard} class="slds-p-around--xx-small" size="12"
                                         medium-device-size="6" large-device-size="6">
                                         <lightning-input name="cvv" class="cvv" type="password" message-when-pattern-mismatch="Please enter valid CVV number"
@@ -79,6 +63,19 @@
                                             required onchange={handleChange}>
                                         </lightning-input>
                                     </lightning-layout-item>
+
+                                    <lightning-layout-item if:true={showCard} class="slds-p-around--xx-small" size="12"
+                                        medium-device-size="6" large-device-size="6">
+                                        <lightning-input 
+                                            class="amount"
+                                            type="number"
+                                            name="amount"
+                                            label="Amount"
+                                            value={amount}
+                                            disabled>
+                                        </lightning-input>
+                                    </lightning-layout-item>
+
                                     <!-- credit card end -->
 
                     
@@ -99,5 +96,4 @@
             </div>
         </div>
     </div><br />
-    <!--- /Header -->
 </template>

@@ -1,22 +1,42 @@
 <template>
-    <lightning-card title="Payment">
-        <div class="slds-p-around_medium">
-            <lightning-record-form
-                record-id={recordId}
-                object-api-name="Order_Product__c"
-                fields={fieldsToShow}
-                mode="readonly"
-                columns="1"
-            ></lightning-record-form>
+    <!-- Modal -->
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
 
-            <lightning-button
-                label="Pay Now"
-                variant="brand"
-                onclick={handlePayNow}
-                disabled={isPayDisabled}>
-            </lightning-button>
+            <!-- Header -->
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">New Order</h2>
+            </header>
 
+            <!-- Body -->
+            <div class="slds-modal__content slds-p-around_medium">
+                <div class="orderdetails">
+                    <p>Product Name: {name}</p>
+                    <p>Unit Price: {amount}</p>
+                    <p>Total Amount: {totalAmount}</p>
+                    <br><br>
+                </div>
+                <lightning-input label="Quantity" type="number" value={quantity} onchange={handleChange} data-id="quantity"></lightning-input>
+                <lightning-input label="First Name" value={firstName} onchange={handleChange} data-id="firstName"></lightning-input>
+                <lightning-input label="Last Name" value={lastName} onchange={handleChange} data-id="lastName"></lightning-input>
+                <lightning-input label="Email" type="email" value={email} onchange={handleChange} data-id="email"></lightning-input>
+                <lightning-input label="Address" value={address} onchange={handleChange} data-id="address"></lightning-input>
+                <lightning-input label="City" value={city} onchange={handleChange} data-id="city"></lightning-input>
+                <lightning-input label="State" value={state} onchange={handleChange} data-id="state"></lightning-input>
+                <lightning-input label="Zip" value={zip} onchange={handleChange} data-id="zip"></lightning-input>
+                <lightning-input label="Country" value={country} onchange={handleChange} data-id="country"></lightning-input>
+                <!-- <lightning-input label=" Total Amount (₹)" type="number" value={totalAmount}  data-id="amount" disabled></lightning-input> -->
 
+                <lightning-button label="Add Order" variant="brand" class="slds-m-top_small"
+                    onclick={handleOrder} disabled={isPayDisabled}>
+                </lightning-button>
+            </div>
+
+            <!-- Footer -->
+            <footer class="slds-modal__footer">
+                <lightning-button variant="neutral" label="Cancel" onclick={handleClose}></lightning-button>
+            </footer>
         </div>
-    </lightning-card>
+
+    </section>
 </template>

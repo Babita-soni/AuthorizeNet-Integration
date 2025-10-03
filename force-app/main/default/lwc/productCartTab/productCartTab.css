@@ -1,0 +1,55 @@
+.product-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.small-image {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: contain;
+}
+.product-card{
+    border: -12px solid;
+    margin: 5px;
+}
+.summary-heading{
+    font-size: 1.5rem;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.summary{
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+}
+.checkout{
+    padding: 5px;
+    margin-top: 10px;
+}
+.container{
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin: 7px;
+    cursor: pointer;
+    font-style: bold;
+}
+.slds-card{
+    height: 100%;
+}
+.big-font{
+    font-size: large;
+}
+.slds-modal__container {
+    width: 70%;
+    max-width: 900px;
+    height: fit-content;
+}
+.empty-cart{
+    margin: auto;
+}

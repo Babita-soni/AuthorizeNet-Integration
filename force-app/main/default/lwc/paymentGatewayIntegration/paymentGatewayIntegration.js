@@ -105,7 +105,7 @@ export default class PaymentGatewayIntegration extends LightningElement {
     }
 
     enableSave() {
-        this.showPlaceOrder = !(this.validCardNumber && this.validAmount && this.validMonth && this.validYear && this.validCvv);
+        this.showPlaceOrder = !(this.validCardNumber && this.validMonth && this.validYear && this.validCvv);
     }
 
     handlePayment() {
